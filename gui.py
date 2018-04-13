@@ -60,15 +60,14 @@ class MailDownloader(Frame):
                 config.update(json.loads(f.read()))
         except:
             pass
-        print config
-        self.host.set(config.get('host', 'pop.secureserver.net'))
+        self.host.set(config.get('host', ''))
         self.port.set(config.get('port', 110))
         self.user.set(config.get('user', ''))
         self.password.set(config.get('password', ''))
         self.selected_dir.set(config.get('selected_dir', ''))
 
     def layout_form(self):
-        self.create_text_row("host", label="Host:", row=0, default="pop.secureserver.net")
+        self.create_text_row("host", label="Host:", row=0, default="")
         self.create_text_row("port", label="Port:", row=1, default=110)
         self.create_text_row("user", label="User:", row=2, default="")
         self.create_text_row("password", label="Password:", row=3, default="")
